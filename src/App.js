@@ -1,26 +1,31 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <Job salary={90000} position= "Senior SDE" company="Amazon"        />
+const [count, setCount] = useState(0)
 
-
-    </div>
-  );
+const increaseCount = () => {
+setCount(count + 1);
 }
 
-const Job = (props) => {
-  return (
-    <div>
-    <h1>{props.salary}</h1>
-    <h1>{props.position}</h1>
-    <h1>{props.company}</h1>
-    
+const decreaseCount = () => {
+setCount(count - 1);
+}
 
+const resetZero = () => {
+  setCount(count - count)
+}
 
+return (
+    <div className="App">
+      {count}
+      <button onClick={increaseCount}>Increase</button>
+      <button onClick={decreaseCount}>Decrease</button>
+      <button onClick={resetZero}>Reset</button>
+      
+      {count}
     </div>
   )
-}
 
+}
 export default App;
